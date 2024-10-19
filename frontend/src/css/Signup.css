@@ -1,0 +1,289 @@
+
+/* Container for login and testimonial */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 92vh; /* Adjust height as needed */
+    width: 98vw; /* Adjust width as needed */
+    max-width: 1200px; /* Max width to prevent too much expansion */
+    position: relative; /* Ensure z-index works */
+    background-color: transparent;
+    overflow: hidden;
+}
+
+/* Login section */
+.login {
+    background-color: #0A2E2E;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 400px; /* Adjust max-width as needed */
+    margin: auto;
+}
+
+.login h1 {
+    margin-bottom: 20px;
+}
+
+.login input {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.login a {
+    color: #8BC34A;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.login button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #8BC34A;
+    color: white;
+    cursor: pointer;
+}
+
+.login .social {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.login .social img {
+    width: 40px;
+    cursor: pointer;
+}
+
+/* Testimonial section */
+.testimonial {
+    background-color: transparent;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: auto;
+    overflow: hidden;
+}
+
+.testimonial .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.testimonial .box {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonial .box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.testimonial .box:hover img {
+    transform: scale(1.1);
+}
+
+.details {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 14px;
+    overflow-y: auto;
+    transition: top 0.3s ease;
+}
+
+.testimonial .box:hover .details {
+    top: 0;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: #1abc9c;
+    margin-bottom: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="radio"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+    border-color: #1abc9c;
+}
+
+.radio-group {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #115a4c;
+}
+
+a {
+    color: #16a085;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Wave animation */
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .testimonial {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login, .testimonial {
+        width: 90%;
+        max-width: none;
+    }
+
+    .testimonial .boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial .box {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login {
+        padding: 10px;
+    }
+
+    .login input {
+        padding: 8px;
+    }
+
+    .testimonial .box {
+        width: 80px;
+        height: 80px;
+    }
+
+    .details {
+        font-size: 12px;
+        padding: 5px;
+    }
+}
